@@ -1,0 +1,37 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      # run - executa um comando shell na máquina virtual
+      # use - executa um action pré-definido na máquina virtual
+      - name: Checkout do repositório na máquina virtual
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+      
+      - name: Instalação de dependências
+        run: npm install
+
+      - name: Execução de testes
+        run: npm run test
+  
+  cd:
+    name: Job para deploy
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Sucesso ☑️
+        run: echo "Simulação de deploy ☑️"

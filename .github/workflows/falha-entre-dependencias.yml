@@ -1,0 +1,56 @@
+name: Workflow com dep de Jobs falho
+
+# Eventos para ativar o workflow
+on:
+  # quais eventos? Push, Pull Request, merge, rebase, ...
+  push:
+    branches:
+      - main
+      - developer
+  pull_request:
+    branches: [ main, developer ]
+
+# quais são os trabalhos a serem executados pelo workflow ?
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Passo 1
+        run: echo "Passo 1"
+
+      - name: Passo 2
+        run: echo "Passo 2"
+
+      - run: echo "Passo 3"
+
+  job2:
+    name: Job 2
+    needs: job1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Passo 1
+        run: echo "Passo 1"
+
+      - name: Passo 2
+        run: echo "Passo 2"
+
+      - name: Passo falho
+        run: echo "Passo falho" | exit 1
+
+  job3:
+    name: Job 3
+    needs: job2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Passo 1
+        run: echo "Passo 1"
+
+      - name: Passo 2
+        run: echo "Passo 2"
+        
+      - run: echo "Passo 3"
+  
