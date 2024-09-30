@@ -4,14 +4,14 @@ name: Segundo Workflow
 on:
   # vamos incluir dois eventos na lista na branch develop
   push:
-    branches: [develop]
+    branches: [develop, main, master]
   # podemos também incluir eventos de solicitaçoes pull_request como gatilho para a execução do pipeline
   pull_request:
     branches: [develop, main, master]
 
 # agora vamos implementar os trabalhos a serem executados de forma paralela e com dependência
 jobs:
-  job1:
+  tarefa1:
     name: Primeira tarefa
     # Irá executar no container virtual linux
     runs-on: ubuntu-latest
@@ -29,7 +29,7 @@ jobs:
       - name: Quarto passo
         run: echo "Simulando a execução do quarto passo
 
-  job2:
+  tarefa2:
     name: Segunda tarefa
     # Irá executar também no container virtual linux
     runs-on: ubuntu-latest
@@ -44,10 +44,10 @@ jobs:
       - name: Setimo passo       
         run: echo "Simulando a execução do setimo passo."
 
-  job3:
+  tarefa3:
     name: Terceira tarefa
     # vamos simular a dependência do terceiro trabalho dependendo do primeiro
-    needs: job1
+    needs: tarefa1
     # Irá executar também no container virtual linux
     runs-on: ubuntu-latest
     # vamos criar os passos a serem executados nesta tarefa
