@@ -47,7 +47,7 @@ jobs:
   tarefa3:
     name: Terceira tarefa
     # vamos simular a dependência do terceiro trabalho dependendo do primeiro
-    needs: tarefa2
+    needs: tarefa1
     # Irá executar também no container virtual linux
     runs-on: ubuntu-latest
     # vamos criar os passos a serem executados nesta tarefa
