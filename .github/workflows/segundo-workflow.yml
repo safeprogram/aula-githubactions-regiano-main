@@ -27,7 +27,7 @@ jobs:
         run: echo "Simulando a execução do terceiro passo."
 
       - name: Quarto passo
-        run: echo "Simulando a execução do quarto passo
+        run: echo "Simulando a execução do quarto passo."
 
   tarefa2:
     name: Segunda tarefa
