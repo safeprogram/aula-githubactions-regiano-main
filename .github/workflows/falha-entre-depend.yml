@@ -29,7 +29,7 @@ jobs:
       - name: Passo 5
         run: echo "Rodando o quinto passo do deploy."
       - name: Passo 6
-        run: echo "Rodando o sexto passo do deploy."   
+        run: echo "Provocando uma falha neste ponto." | exit 1   
   job3:
     name: Terceiro fluxo
     needs: job2
