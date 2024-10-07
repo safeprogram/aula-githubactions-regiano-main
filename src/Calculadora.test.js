@@ -15,7 +15,7 @@ describe("Calculadora", () => {
     // expect(calculadora).toBeDefined(); 
     expect(calculadora.resultado).toBeDefined();
     expect(typeof calculadora.resultado).toBe('number');
-  })
+  });
 
   it('Atribui um novo valor à calculadora', () => {
     const calculadora = new Calculadora();
@@ -25,7 +25,7 @@ describe("Calculadora", () => {
     expect(calculadora.resultado).toBe(0);
     expect(() => calculadora.resultado = "5").not.toThrow(TypeError);
     expect(calculadora.resultado).toBe(5);
-  })
+  });
 
   it("Operação soma", () => {
     const calculadora = new Calculadora();
@@ -54,7 +54,7 @@ describe("Calculadora", () => {
     expect(calculadora.resultado).toBe(5);
 
     
-  })
+  });
 })
 
 
