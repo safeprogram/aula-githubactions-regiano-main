@@ -1,0 +1,42 @@
+# primeiro vamos dar um nome para o workflow
+name: Workflow com dependencia de Jobs falho
+# escolhendo os eventos (gatilhos) de disparo do job
+on: 
+  push: 
+    branches: [main, master, develop, hotfix]
+  pull_request:
+    branches: [main, master, develop, hotfix]
+# agora iremos descrever os passos do worflow
+jobs:
+  job1: 
+    name: Primeiro fluxo
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Passo 1
+        run: echo "Rodando o primeiro passo do deploy."
+      - name: Passo 2
+        run: echo "Rodando o segundo passo do deploy."
+      - name: Passo 3
+        run: echo "Rodando o terceiro passo do deploy."        
+    
+  job2:
+    name: Segundo fluxo
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Passo 4
+        run: echo "Rodando o quarto passo do deploy."
+      - name: Passo 5
+        run: echo "Rodando o quinto passo do deploy."
+      - name: Passo 6
+        run: echo "Rodando o sexto passo do deploy."   
+  job3:
+    name: Terceiro fluxo
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Passo 7
+        run: echo "Rodando o setimo passo do deploy."
+      - name: Passo 8
+        run: echo "Rodando o oitavo passo do deploy."
+      - name: Passo 9
+        run: echo "Rodando o nono passo do deploy."      
+  
